@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    dexOptions {
+        maxProcessCount 2
+        javaMaxHeapSize "2g"
+    }
+
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "com.durrutia.twinpic"
+        minSdkVersion 23
+        targetSdkVersion 25
+        versionCode 12
+        versionName "alpha-12"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        jackOptions {
+            enabled false
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            debuggable true
+            versionNameSuffix "-dbg"
+            testCoverageEnabled true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+
+    // compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    // compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:design:25.0.0'
+    compile 'com.android.support:percent:25.0.0'
+    testCompile 'junit:junit:4.12'
+
+    // Simple Logging Facade 4 Java
+    compile 'org.slf4j:slf4j-api:1.7.21'
+
+    // Logback Android Core Module
+    compile 'com.github.tony19:logback-android-core:1.1.1-6'
+
+    // Fix warning: http://stackoverflow.com/questions/37324917/new-warning-when-building-android-app-with-gradle
+    compile('com.github.tony19:logback-android-classic:1.1.1-6') {
+        exclude group: 'com.google.android'
+    }
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    compile 'org.apache.commons:commons-lang3:3.4'
+
+    // https://github.com/square/leakcanary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
+    // Google GSON
+    compile 'com.google.code.gson:gson:2.7'
+
+    // Lombok!
+    provided 'org.projectlombok:lombok:1.16.10'
+    annotationProcessor "org.projectlombok:lombok:1.16.10"
+
+    // https://github.com/JakeWharton/butterknife
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+}
