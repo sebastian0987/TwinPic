@@ -1,5 +1,6 @@
 package com.durrutia.twinpic.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
@@ -11,18 +12,21 @@ import java.util.Properties;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Created by durrutia on 20-Oct-16.
+ * Clase para obtener informacion del dispositivo.
+ *
+ * @author Diego P. Urrutia Astorga
+ * @version 20161102
  */
 @Slf4j
 public class DeviceUtils {
 
     /**
-     *
      * @param context
      * @return the DeviceID
      */
     public static String getDeviceId(final Context context) {
 
+        @SuppressLint("HardwareIds")
         final String androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
 
         if ("9774d56d682e549c".equals(androidId)) {
@@ -33,13 +37,14 @@ public class DeviceUtils {
     }
 
     /**
+     * Obtiene el nombre del dispositivo.
      *
      * @param context
-     * @return
+     * @return the DeviceName
      */
     public static String getDeviceName(final Context context) {
-        String manufacturer = Build.MANUFACTURER;
-        String undecodedModel = Build.MODEL;
+        final String manufacturer = Build.MANUFACTURER;
+        final String undecodedModel = Build.MODEL;
         String model = null;
 
         try {
@@ -69,15 +74,14 @@ public class DeviceUtils {
     }
 
     /**
-     *
      * @param s
-     * @return
+     * @return the Capitalized String
      */
-    private static String capitalize(String s) {
+    private static String capitalize(final String s) {
         if (s == null || s.length() == 0) {
             return "";
         }
-        char first = s.charAt(0);
+        final char first = s.charAt(0);
         if (Character.isUpperCase(first)) {
             return s;
         } else {
