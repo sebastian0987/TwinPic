@@ -11,7 +11,10 @@ import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Created by durrutia on 20-Oct-16.
+ * Pic
+ *
+ * @author Diego P. Urrutia Astorga
+ * @version 20161102
  */
 @Slf4j
 @AllArgsConstructor
@@ -43,6 +46,12 @@ public class Pic extends BaseModel {
      */
     @Getter
     Long date;
+
+    /**
+     * URL de la foto
+     */
+    @Getter
+    String url;
 
     /**
      * Latitud

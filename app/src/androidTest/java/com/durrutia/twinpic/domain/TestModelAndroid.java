@@ -12,7 +12,10 @@ import org.junit.runner.RunWith;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Created by durrutia on 02-Nov-16.
+ * Testing version Android.
+ *
+ * @author Diego P. Urrutia Astorga
+ * @version 20161102
  */
 @RunWith(AndroidJUnit4.class)
 @Slf4j

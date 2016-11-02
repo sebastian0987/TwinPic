@@ -13,7 +13,10 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Created by durrutia on 02-Nov-16.
+ * Clase que relaciona 2 {@link Pic}.
+ *
+ * @author Diego P. Urrutia Astorga
+ * @version 20161102
  */
 @Slf4j
 @AllArgsConstructor

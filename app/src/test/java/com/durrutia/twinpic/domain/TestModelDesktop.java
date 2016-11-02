@@ -12,6 +12,8 @@ import org.robolectric.RuntimeEnvironment;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * Testing version Desktop via Robolectric.
+ *
  * @author Diego P. Urrutia Astorga
  * @version 20161102
  */

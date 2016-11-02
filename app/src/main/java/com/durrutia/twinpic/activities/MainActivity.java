@@ -16,7 +16,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
+ * Pagina principal.
  *
+ * @author Diego P. Urrutia Astorga
+ * @version 20151022
  */
 public class MainActivity extends ListActivity {
 

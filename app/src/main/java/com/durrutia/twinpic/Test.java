@@ -11,6 +11,7 @@ import com.raizlabs.android.dbflow.config.FlowConfig;
 import com.raizlabs.android.dbflow.config.FlowManager;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 
 import java.util.Date;
@@ -19,13 +20,17 @@ import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Created by durrutia on 02-Nov-16.
+ * Test principal del backend.
+ *
+ * @author Diego P. Urrutia Astorga
+ * @version 20161102
  */
 @Slf4j
 public final class Test {
 
     /**
      * Testing the bd.
+     *
      * @param context
      */
     public static void testDatabase(final Context context) {
@@ -60,6 +65,7 @@ public final class Test {
                         .latitude(RandomUtils.nextDouble())
                         .longitude(RandomUtils.nextDouble())
                         .date(new Date().getTime())
+                        .url("http://" + RandomStringUtils.randomAlphabetic(20))
                         .positive(RandomUtils.nextInt(0, 100))
                         .negative(RandomUtils.nextInt(0, 100))
                         .warning(RandomUtils.nextInt(0, 2))
