@@ -41,6 +41,8 @@ android {
     }
 }
 
+def dbflow_version = "4.0.0-beta1"
+
 dependencies {
 
     // compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -65,7 +67,7 @@ dependencies {
     }
 
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
-    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'org.apache.commons:commons-lang3:3.5'
 
     // https://github.com/square/leakcanary
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
@@ -73,7 +75,7 @@ dependencies {
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
     // Google GSON
-    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.google.code.gson:gson:2.8.0'
 
     // Lombok!
     provided 'org.projectlombok:lombok:1.16.10'
@@ -82,4 +84,10 @@ dependencies {
     // https://github.com/JakeWharton/butterknife
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    // use kapt for kotlin apt
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+
 }
