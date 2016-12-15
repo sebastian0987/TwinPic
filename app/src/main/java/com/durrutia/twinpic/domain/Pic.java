@@ -1,6 +1,7 @@
 package com.durrutia.twinpic.domain;
 
 import com.durrutia.twinpic.Database;
+import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 
@@ -31,6 +32,7 @@ public class Pic extends BaseModel {
     /**
      * Identificador unico
      */
+    @Column
     @Getter
     @PrimaryKey(autoincrement = true)
     Long id;
@@ -38,49 +40,62 @@ public class Pic extends BaseModel {
     /**
      * Identificador del dispositivo
      */
+    @Column
     @Getter
     String deviceId;
 
     /**
      * Fecha de la foto
      */
+    @Column
     @Getter
-    Long date;
+    String date;
 
     /**
      * URL de la foto
      */
+    @Column
     @Getter
-    String url;
+    String pathFoto;
+
+    @Column
+    @Getter
+    String fotoRecibida;
 
     /**
      * Latitud
      */
+    @Column
     @Getter
-    Double latitude;
+    String latitude;
 
     /**
      * Longitud
      */
+    @Column
     @Getter
-    Double longitude;
+    String longitude;
 
     /**
      * Numero de likes
      */
+    @Column
     @Getter
     Integer positive;
 
     /**
      * Numero de dis-likes
      */
+    @Column
     @Getter
     Integer negative;
 
     /**
      * Numero de warnings
      */
+    @Column
     @Getter
     Integer warning;
+
 
 }

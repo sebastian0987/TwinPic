@@ -14,7 +14,6 @@ import com.raizlabs.android.dbflow.sql.language.SQLite;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 
-import java.util.Date;
 import java.util.List;
 
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +35,9 @@ public final class Test {
     public static void testDatabase(final Context context) {
 
         // Remove database
+
         context.deleteDatabase(Database.NAME + ".db");
+
 
         // Cronometro
         final Stopwatch stopwatch = Stopwatch.createStarted();
@@ -62,10 +63,10 @@ public final class Test {
 
                 final Pic pic = Pic.builder()
                         .deviceId(DeviceUtils.getDeviceId(context))
-                        .latitude(RandomUtils.nextDouble())
-                        .longitude(RandomUtils.nextDouble())
-                        .date(new Date().getTime())
-                        .url("http://" + RandomStringUtils.randomAlphabetic(20))
+                        .latitude(String.valueOf(RandomUtils.nextDouble()))
+                        .longitude(String.valueOf(RandomUtils.nextDouble()))
+                        .date("")
+                        .pathFoto("http://" + RandomStringUtils.randomAlphabetic(20))
                         .positive(RandomUtils.nextInt(0, 100))
                         .negative(RandomUtils.nextInt(0, 100))
                         .warning(RandomUtils.nextInt(0, 2))

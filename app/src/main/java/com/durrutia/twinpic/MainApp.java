@@ -24,6 +24,7 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+
         // LeakCanary solo en aplicacion principal
         if (LeakCanary.isInAnalyzerProcess(this)) {
             // This process is dedicated to LeakCanary for heap analysis.
